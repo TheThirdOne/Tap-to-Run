@@ -40,7 +40,7 @@ public class GameRenderer extends Renderer
 	{
 		for(int i = 0; i < NUMBER_OF_CLOUDS; i++ )
 		{
-			batch.draw(Assets.getImage(Assets.cloud),clouds[i].getX()*TapToRunMain.w,clouds[i].getY()*TapToRunMain.h,64,32);
+			batch.draw(Assets.getImage(Assets.cloud),clouds[i].getX()*TapToRunMain.w,clouds[i].getY()*TapToRunMain.h,.1f*TapToRunMain.w,.05f*TapToRunMain.h);
 			clouds[i].update(delta);
 		}
 	}
