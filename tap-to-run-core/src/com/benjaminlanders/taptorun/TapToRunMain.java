@@ -3,12 +3,11 @@ package com.benjaminlanders.taptorun;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.benjaminlanders.taptorun.controller.Controller;
 import com.benjaminlanders.taptorun.helper.Assets;
+import com.benjaminlanders.taptorun.helper.SoundManager;
 import com.benjaminlanders.taptorun.model.World;
 import com.benjaminlanders.taptorun.renderer.GameRenderer;
 import com.benjaminlanders.taptorun.renderer.MenuRenderer;
@@ -17,7 +16,6 @@ import com.benjaminlanders.taptorun.renderer.Renderer;
 public class TapToRunMain implements ApplicationListener
 {
 	private SpriteBatch batch;
-	private Texture texture;
 	public static float h,w;
 	public static final int MAIN = 0;
 	public static final int MENU = 1;
@@ -37,20 +35,18 @@ public class TapToRunMain implements ApplicationListener
 		
 		batch = new SpriteBatch();
 		
+		SoundManager.init();
+		
 		Assets.font = new BitmapFont(Gdx.files.internal("test.fnt"), false);
 		
 		main = new GameRenderer(this, batch, world);
 		menu = new MenuRenderer(this, batch);
-			
-		texture = new Texture(Gdx.files.internal("data/libgdx.png"));
-		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 	}
 
 	@Override
 	public void dispose()
 	{
 		batch.dispose();
-		texture.dispose();
 	}
 
 	@Override

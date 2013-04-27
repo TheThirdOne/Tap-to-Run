@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.benjaminlanders.taptorun.TapToRunMain;
 import com.benjaminlanders.taptorun.helper.Assets;
+import com.benjaminlanders.taptorun.helper.SoundManager;
 
 public class MenuRenderer extends Renderer
 {
@@ -35,6 +36,7 @@ public class MenuRenderer extends Renderer
 			   TapToRunMain.h-Gdx.input.getY() > TapToRunMain.h/2 - Assets.font.getBounds("Play Game").height)
 			{
 				reference.setState(TapToRunMain.MAIN);
+				SoundManager.playSelect();
 			}
 			if(Gdx.input.getX() < TapToRunMain.w/2 + Assets.font.getBounds("Highscore").width/2 &&
 				Gdx.input.getX() > TapToRunMain.w/2 - Assets.font.getBounds("Highscore").width/2 &&
@@ -42,6 +44,7 @@ public class MenuRenderer extends Renderer
 				TapToRunMain.h-Gdx.input.getY() > TapToRunMain.h/2 - Assets.font.getBounds("HighScore").height- 2 * Assets.font.getBounds("Play Game").height )
 			{
 				reference.setState(TapToRunMain.SCORE);
+				SoundManager.playSelect();
 			}
 		}
 	}

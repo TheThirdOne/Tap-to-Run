@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.benjaminlanders.taptorun.helper.SoundManager;
 import com.benjaminlanders.taptorun.model.Box;
 import com.benjaminlanders.taptorun.model.World;
 
@@ -76,6 +77,7 @@ public class Controller
 					if(mouseReleased)
 					{
 						world.player.vY = .02f;
+						SoundManager.playJump();
 					}
 				}
 			}
