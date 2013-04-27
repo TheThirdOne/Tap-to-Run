@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.benjaminlanders.taptorun.helper.HighScroreKeeper;
 import com.benjaminlanders.taptorun.helper.SoundManager;
 import com.benjaminlanders.taptorun.model.Box;
@@ -21,8 +22,8 @@ public class Controller
 	{
 		if(world.player.alive)
 		{
-			mouseReleased = mouseDown && !Gdx.input.isTouched();
-			mouseDown = Gdx.input.isTouched();
+			mouseReleased = mouseDown && !(Gdx.input.isTouched() || Gdx.input.isKeyPressed(Input.Keys.SPACE));
+			mouseDown = (Gdx.input.isTouched() || Gdx.input.isKeyPressed(Input.Keys.SPACE));
 			updateBlocks(delta);
 			playerCollision(delta);
 			world.player.y += world.player.vY;
