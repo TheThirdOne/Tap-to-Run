@@ -9,11 +9,12 @@ public class Assets
 {
 	public static TapToRunMain application;
 	
-	private static final String[] imageAddress = {"nullimage","background","character"};
-	public static TextureRegion[] images = new TextureRegion[3];
+	private static final String[] imageAddress = {"nullimage","background","character","cloud"};
+	public static TextureRegion[] images = new TextureRegion[4];
 	public static final int nullimage = 0;
 	public static final int background = 1;
 	public static final int character = 2;
+	public static final int cloud = 3;
 	
 	private static final String[] stringAddress = {"test"};
 	public static String[] strings = new String[1];
