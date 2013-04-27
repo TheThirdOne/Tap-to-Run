@@ -22,7 +22,7 @@ public class TapToRunMain implements ApplicationListener
 	public static final int MAIN = 0;
 	public static final int MENU = 1;
 	public static final int SCORE = 2;
-	public static int state= MENU;
+	public int state= MENU;
 	private Renderer main, menu;
 	Controller controller;
 	World world;
@@ -91,7 +91,7 @@ public class TapToRunMain implements ApplicationListener
 	}
 	public void setState(int state)
 	{
-		TapToRunMain.state = state;
+		this.state = state;
 		if(state == MAIN)
 		{
 			resetWorld();

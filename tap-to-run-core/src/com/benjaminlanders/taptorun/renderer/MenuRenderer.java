@@ -1,5 +1,6 @@
 package com.benjaminlanders.taptorun.renderer;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.benjaminlanders.taptorun.TapToRunMain;
@@ -8,7 +9,6 @@ import com.benjaminlanders.taptorun.helper.Assets;
 public class MenuRenderer extends Renderer
 {
 	SpriteBatch batch;
-	int w,h,h2,w2;
 	public MenuRenderer(TapToRunMain ref, SpriteBatch batch)
 	{
 		super(ref);
@@ -22,8 +22,30 @@ public class MenuRenderer extends Renderer
 		batch.draw(Assets.getImage(Assets.menu), 0, 0, TapToRunMain.w, TapToRunMain.h);
 		drawTitle();
 		drawOptions();
+		checkInput();
 		batch.end();
 	}
+	public void checkInput()
+	{
+		if(Gdx.input.justTouched())
+		{
+			if(Gdx.input.getX() < TapToRunMain.w/2 + Assets.font.getBounds("Play Game").width/2 &&
+			   Gdx.input.getX() > TapToRunMain.w/2 - Assets.font.getBounds("Play Game").width/2 &&
+			   TapToRunMain.h-Gdx.input.getY() < TapToRunMain.h/2 &&
+			   TapToRunMain.h-Gdx.input.getY() > TapToRunMain.h/2 - Assets.font.getBounds("Play Game").height)
+			{
+				reference.setState(TapToRunMain.MAIN);
+			}
+			if(Gdx.input.getX() < TapToRunMain.w/2 + Assets.font.getBounds("Highscore").width/2 &&
+				Gdx.input.getX() > TapToRunMain.w/2 - Assets.font.getBounds("Highscore").width/2 &&
+				TapToRunMain.h-Gdx.input.getY() < TapToRunMain.h/2 - 2 * Assets.font.getBounds("Play Game").height &&
+				TapToRunMain.h-Gdx.input.getY() > TapToRunMain.h/2 - Assets.font.getBounds("HighScore").height- 2 * Assets.font.getBounds("Play Game").height )
+			{
+				reference.setState(TapToRunMain.SCORE);
+			}
+		}
+	}
+
 	public void drawOptions()
 	{
 		Assets.font.setScale(1f);
