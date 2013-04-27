@@ -16,6 +16,7 @@ public class World
 	public void reset()
 	{
 		boxes.clear();
+		score = 0;
 		boxes.add(new Box(Box.BLOCK,.1f,.2f,.5f,.2f));
 		boxes.add(new Box(Box.BLOCK,.5f,.3f,.5f,.2f));
 		boxes.add(new Box(Box.BLOCK,1f,.4f,.5f,.2f));

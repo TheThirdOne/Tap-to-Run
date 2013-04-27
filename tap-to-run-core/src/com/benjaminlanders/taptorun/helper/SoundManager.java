@@ -12,7 +12,7 @@ public class SoundManager {
 	{
 		jump = Gdx.audio.newSound(Gdx.files.internal("sounds/jump.wav"));
 		select = Gdx.audio.newSound(Gdx.files.internal("sounds/select.wav"));
-		music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.wav"));
+		music = Gdx.audio.newMusic(Gdx.files.internal("sounds/music.mp3"));
 		music.setLooping(true);
 		music.play();
 	}
