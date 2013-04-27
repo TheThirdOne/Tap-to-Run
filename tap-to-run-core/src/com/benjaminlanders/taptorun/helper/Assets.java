@@ -2,6 +2,7 @@ package com.benjaminlanders.taptorun.helper;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.benjaminlanders.taptorun.TapToRunMain;
 
@@ -20,6 +21,8 @@ public class Assets
 	private static final String[] stringAddress = {"test"};
 	public static String[] strings = new String[1];
 	public static final int test = 0;
+	
+	public static BitmapFont font; 
 	public static String getString(int reference)
 	{
 		if(strings.length <= reference)

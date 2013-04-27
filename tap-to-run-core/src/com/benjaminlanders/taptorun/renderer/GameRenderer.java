@@ -31,11 +31,14 @@ public class GameRenderer extends Renderer
 		stateTime += delta;
 		batch.begin();
 		drawBackground(stateTime);
+		drawClouds(delta);
 		drawBlocks();
 		drawCharacter();
-		drawClouds(delta);
+		drawScore();
+		drawGameOver();
 		batch.end();
 	}
+
 	public void drawClouds(float delta)
 	{
 		for(int i = 0; i < NUMBER_OF_CLOUDS; i++ )
@@ -59,6 +62,25 @@ public class GameRenderer extends Renderer
 		for(Box box: world.boxes)
 		{
 			batch.draw(Assets.getImage(Assets.block), box.x*TapToRunMain.w, box.y*TapToRunMain.h, box.w*TapToRunMain.w, box.h*TapToRunMain.h);
+		}
+	}
+	public void drawScore()
+	{
+		if(world.player.alive)
+		{
+		Assets.font.setScale(TapToRunMain.w/240, TapToRunMain.h/160);
+		Assets.font.draw(batch, "" + ((int)world.score), 0, TapToRunMain.h);
+		}
+	}
+	public void drawGameOver() 
+	{
+		if(!world.player.alive)
+		{
+		Assets.font.setScale(TapToRunMain.w/120, TapToRunMain.h/80);
+		Assets.font.draw(batch, "Game over",(int) (TapToRunMain.w/2-TapToRunMain.w/3.5f), TapToRunMain.h/2+TapToRunMain.h/6);
+		Assets.font.setScale(TapToRunMain.w/160, TapToRunMain.h/100);
+		Assets.font.draw(batch, "Points:" + ((int)world.score),
+				(int) (TapToRunMain.w/2-TapToRunMain.w/4f), TapToRunMain.h/2);
 		}
 	}
 

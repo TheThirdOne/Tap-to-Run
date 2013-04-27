@@ -7,6 +7,7 @@ public class World
 {
 	public List<Box> boxes;
 	public Player player;
+	public float score=0;
 	public World()
 	{
 		boxes = new ArrayList<Box>();

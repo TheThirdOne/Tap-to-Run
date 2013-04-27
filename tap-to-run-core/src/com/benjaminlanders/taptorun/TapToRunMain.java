@@ -5,8 +5,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.benjaminlanders.taptorun.controller.Controller;
+import com.benjaminlanders.taptorun.helper.Assets;
 import com.benjaminlanders.taptorun.model.World;
 import com.benjaminlanders.taptorun.renderer.GameRenderer;
 import com.benjaminlanders.taptorun.renderer.Renderer;
@@ -16,6 +18,10 @@ public class TapToRunMain implements ApplicationListener
 	private SpriteBatch batch;
 	private Texture texture;
 	public static float h,w;
+	public static int state= 0;
+	public static final int MAIN = 0;
+	public static final int MENU = 1;
+	public static final int SCORE = 2;
 	private Renderer main;
 	Controller controller;
 	World world;
@@ -29,6 +35,8 @@ public class TapToRunMain implements ApplicationListener
 		controller = new Controller(world);
 		
 		batch = new SpriteBatch();
+		
+		Assets.font = new BitmapFont();
 		
 		main = new GameRenderer(this, batch, world);
 		
@@ -56,14 +64,17 @@ public class TapToRunMain implements ApplicationListener
 	}
 
 	@Override
-	public void resize(int width, int height) {
+	public void resize(int width, int height)
+	{
 	}
 
 	@Override
-	public void pause() {
+	public void pause()
+	{
 	}
 
 	@Override
-	public void resume() {
+	public void resume()
+	{
 	}
 }

@@ -17,11 +17,22 @@ public class Controller
 	}
 	public void update(float delta)
 	{
-		mouseReleased = mouseDown && !Gdx.input.isTouched();
-		mouseDown = Gdx.input.isTouched();
-		updateBlocks(delta);
-		playerCollision(delta);
-		world.player.y += world.player.vY;
+		if(world.player.alive)
+		{
+			mouseReleased = mouseDown && !Gdx.input.isTouched();
+			mouseDown = Gdx.input.isTouched();
+			updateBlocks(delta);
+			playerCollision(delta);
+			world.player.y += world.player.vY;
+			world.score += delta*5;
+			if(world.player.y + world.player.h/2 < 0)
+			{
+				world.player.alive = false;
+			}
+		}else
+		{
+			updateBlocks(delta/10);
+		}
 		
 	}
 	private void updateBlocks(float delta)
