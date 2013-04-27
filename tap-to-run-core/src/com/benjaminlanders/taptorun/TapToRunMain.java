@@ -10,6 +10,7 @@ import com.benjaminlanders.taptorun.helper.Assets;
 import com.benjaminlanders.taptorun.helper.SoundManager;
 import com.benjaminlanders.taptorun.model.World;
 import com.benjaminlanders.taptorun.renderer.GameRenderer;
+import com.benjaminlanders.taptorun.renderer.HighScoreRenderer;
 import com.benjaminlanders.taptorun.renderer.MenuRenderer;
 import com.benjaminlanders.taptorun.renderer.Renderer;
 
@@ -21,7 +22,7 @@ public class TapToRunMain implements ApplicationListener
 	public static final int MENU = 1;
 	public static final int SCORE = 2;
 	public int state= MENU;
-	private Renderer main, menu;
+	private Renderer main, menu, scores;
 	Controller controller;
 	World world;
 	@Override
@@ -41,6 +42,7 @@ public class TapToRunMain implements ApplicationListener
 		
 		main = new GameRenderer(this, batch, world);
 		menu = new MenuRenderer(this, batch);
+		scores = new HighScoreRenderer(this, batch);
 	}
 
 	@Override
@@ -65,7 +67,7 @@ public class TapToRunMain implements ApplicationListener
 				menu.render(delta);
 				break;
 			case SCORE:
-				
+				scores.render(delta);
 				break;
 		}
 		

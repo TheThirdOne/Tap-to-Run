@@ -1,5 +1,6 @@
 package com.benjaminlanders.taptorun.renderer;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.benjaminlanders.taptorun.TapToRunMain;
 import com.benjaminlanders.taptorun.helper.Assets;
@@ -80,6 +81,14 @@ public class GameRenderer extends Renderer
 				TapToRunMain.h/2+Assets.font.getBounds("Game Over").height+5);
 		Assets.font.draw(batch, "Points:" + ((int)world.score),
 				(int) (TapToRunMain.w/2-Assets.font.getBounds("Points:" + ((int)world.score)).width/2), TapToRunMain.h/2);
+		checkToReturn();
+		}
+	}
+	public void checkToReturn()
+	{
+		if(Gdx.input.justTouched())
+		{
+			reference.setState(TapToRunMain.MENU);
 		}
 	}
 
