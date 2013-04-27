@@ -10,15 +10,26 @@ import com.benjaminlanders.taptorun.model.World;
 public class Controller
 {
 	World world;
+	boolean mouseReleased, mouseDown;
 	public Controller(World world)
 	{
 		this.world = world;
 	}
 	public void update(float delta)
 	{
+		mouseReleased = mouseDown && !Gdx.input.isTouched();
+		mouseDown = Gdx.input.isTouched();
+		updateBlocks(delta);
 		playerCollision(delta);
 		world.player.y += world.player.vY;
 		
+	}
+	private void updateBlocks(float delta)
+	{
+		for(Box box: world.boxes)
+		{
+			box.x -= delta*.5f;
+		}
 	}
 	private void playerCollision(float delta)
 	{
@@ -30,13 +41,20 @@ public class Controller
 		}
 		if(!collided.isEmpty())
 		{
+			if(mouseDown)
+			{
+				world.player.x += .005f;
+			}else
+			{
+				world.player.x -= .0001f;
+			}
 			for(Box collides: collided)
 			{
 				if(world.player.y - world.player.h/2 <= collides.y+collides.h)
 				{
 					world.player.y = collides.y+collides.h+world.player.h/2-.01f;
 					world.player.vY = 0;
-					if(Gdx.input.justTouched())
+					if(mouseReleased)
 					{
 						world.player.vY = .02f;
 					}
@@ -51,6 +69,16 @@ public class Controller
 		{
 			if(block.collides(world.player.x+world.player.w/2, world.player.y))
 				collided.add(block);
+		}
+		if(!collided.isEmpty())
+		{
+			for(Box collides: collided)
+			{
+				if(world.player.x + world.player.w/2 > collides.x)
+				{
+					world.player.x = collides.x - world.player.w/2;
+				}
+			}
 		}
 		collided.clear();
 	}
