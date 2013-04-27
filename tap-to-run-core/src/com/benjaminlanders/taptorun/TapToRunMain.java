@@ -11,6 +11,7 @@ import com.benjaminlanders.taptorun.controller.Controller;
 import com.benjaminlanders.taptorun.helper.Assets;
 import com.benjaminlanders.taptorun.model.World;
 import com.benjaminlanders.taptorun.renderer.GameRenderer;
+import com.benjaminlanders.taptorun.renderer.MenuRenderer;
 import com.benjaminlanders.taptorun.renderer.Renderer;
 
 public class TapToRunMain implements ApplicationListener
@@ -18,11 +19,11 @@ public class TapToRunMain implements ApplicationListener
 	private SpriteBatch batch;
 	private Texture texture;
 	public static float h,w;
-	public static int state= 0;
 	public static final int MAIN = 0;
 	public static final int MENU = 1;
 	public static final int SCORE = 2;
-	private Renderer main;
+	public static int state= MENU;
+	private Renderer main, menu;
 	Controller controller;
 	World world;
 	@Override
@@ -39,6 +40,7 @@ public class TapToRunMain implements ApplicationListener
 		Assets.font = new BitmapFont(Gdx.files.internal("test.fnt"), false);
 		
 		main = new GameRenderer(this, batch, world);
+		menu = new MenuRenderer(this, batch);
 			
 		texture = new Texture(Gdx.files.internal("data/libgdx.png"));
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -64,7 +66,7 @@ public class TapToRunMain implements ApplicationListener
 				main.render(delta);
 				break;
 			case MENU:
-				
+				menu.render(delta);
 				break;
 			case SCORE:
 				
