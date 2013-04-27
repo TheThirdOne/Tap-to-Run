@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.benjaminlanders.taptorun.helper.HighScroreKeeper;
 import com.benjaminlanders.taptorun.helper.SoundManager;
 import com.benjaminlanders.taptorun.model.Box;
 import com.benjaminlanders.taptorun.model.World;
@@ -29,6 +30,7 @@ public class Controller
 			if(world.player.y + world.player.h/2 < 0)
 			{
 				world.player.alive = false;
+				HighScroreKeeper.writeScoreToFile((int)world.score);
 			}
 		}else
 		{

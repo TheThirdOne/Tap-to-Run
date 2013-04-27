@@ -4,11 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.benjaminlanders.taptorun.TapToRunMain;
 import com.benjaminlanders.taptorun.helper.Assets;
+import com.benjaminlanders.taptorun.helper.HighScroreKeeper;
 
 public class HighScoreRenderer extends Renderer 
 {
 	SpriteBatch batch;
 	String[] scores;
+	String[] ranking = {"First","Second","Third","Fourth","Fifth"};
  	public HighScoreRenderer(TapToRunMain ref, SpriteBatch batch) 
 	{
 		super(ref);
@@ -19,6 +21,7 @@ public class HighScoreRenderer extends Renderer
 	public void render(float delta) 
 	{
 		batch.begin();
+		drawBackground();
 		drawTitle();
 		drawScores();
 		checkToReturn();
@@ -32,7 +35,11 @@ public class HighScoreRenderer extends Renderer
 	public void drawScores()
 	{
 		Assets.font.setScale(1);
-		Assets.font.draw(batch, "High Scores", TapToRunMain.w/2-Assets.font.getBounds("High Scores").width/2, TapToRunMain.h-50);
+		String[] scores = HighScroreKeeper.readScoresFromFile();
+		for(int i = 0; i < scores.length;i++)
+		{
+			Assets.font.draw(batch,ranking[i]+ ": " + scores[i], 0, TapToRunMain.h/6*(5-i));
+		}
 	}
 	public void checkToReturn()
 	{
@@ -40,6 +47,10 @@ public class HighScoreRenderer extends Renderer
 		{
 			reference.setState(TapToRunMain.MENU);
 		}
+	}
+	public void drawBackground()
+	{
+		batch.draw(Assets.getImage(Assets.menu), 0, 0, TapToRunMain.w, TapToRunMain.h);
 	}
 
 }

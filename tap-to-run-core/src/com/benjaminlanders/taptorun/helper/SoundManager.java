@@ -22,7 +22,7 @@ public class SoundManager {
 	}
 	public static void playSelect()
 	{
-		select.play();
+		//select.play();
 	}
 
 }

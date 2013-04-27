@@ -11,6 +11,11 @@ public class World
 	public World()
 	{
 		boxes = new ArrayList<Box>();
+		reset();
+	}
+	public void reset()
+	{
+		boxes.clear();
 		boxes.add(new Box(Box.BLOCK,.1f,.2f,.5f,.2f));
 		boxes.add(new Box(Box.BLOCK,.5f,.3f,.5f,.2f));
 		boxes.add(new Box(Box.BLOCK,1f,.4f,.5f,.2f));

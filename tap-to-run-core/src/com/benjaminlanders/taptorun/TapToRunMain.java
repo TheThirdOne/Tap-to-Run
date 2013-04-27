@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.benjaminlanders.taptorun.controller.Controller;
 import com.benjaminlanders.taptorun.helper.Assets;
+import com.benjaminlanders.taptorun.helper.HighScroreKeeper;
 import com.benjaminlanders.taptorun.helper.SoundManager;
 import com.benjaminlanders.taptorun.model.World;
 import com.benjaminlanders.taptorun.renderer.GameRenderer;
@@ -43,6 +44,9 @@ public class TapToRunMain implements ApplicationListener
 		main = new GameRenderer(this, batch, world);
 		menu = new MenuRenderer(this, batch);
 		scores = new HighScoreRenderer(this, batch);
+		HighScroreKeeper.createFile();
+		//HighScroreKeeper.writeScoreToFile(173);
+		Gdx.app.log("last score", HighScroreKeeper.readScoresFromFile()[4]);
 	}
 
 	@Override
@@ -97,7 +101,7 @@ public class TapToRunMain implements ApplicationListener
 	}
 	public void resetWorld()
 	{
-		
+	world.reset();
 	}
 	
 }
