@@ -36,10 +36,10 @@ public class TapToRunMain implements ApplicationListener
 		
 		batch = new SpriteBatch();
 		
-		Assets.font = new BitmapFont();
+		Assets.font = new BitmapFont(Gdx.files.internal("test.fnt"), false);
 		
 		main = new GameRenderer(this, batch, world);
-		
+			
 		texture = new Texture(Gdx.files.internal("data/libgdx.png"));
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 	}
@@ -57,9 +57,20 @@ public class TapToRunMain implements ApplicationListener
 		float delta = Gdx.graphics.getDeltaTime();
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		switch(state)
+		{
+			case MAIN:
+				controller.update(delta);
+				main.render(delta);
+				break;
+			case MENU:
+				
+				break;
+			case SCORE:
+				
+				break;
+		}
 		
-		controller.update(delta);
-		main.render(delta);
 		
 	}
 
@@ -72,9 +83,21 @@ public class TapToRunMain implements ApplicationListener
 	public void pause()
 	{
 	}
-
 	@Override
 	public void resume()
 	{
 	}
+	public void setState(int state)
+	{
+		TapToRunMain.state = state;
+		if(state == MAIN)
+		{
+			resetWorld();
+		}
+	}
+	public void resetWorld()
+	{
+		
+	}
+	
 }

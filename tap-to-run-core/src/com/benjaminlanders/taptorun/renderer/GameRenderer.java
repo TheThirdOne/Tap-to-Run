@@ -76,11 +76,10 @@ public class GameRenderer extends Renderer
 	{
 		if(!world.player.alive)
 		{
-		Assets.font.setScale(TapToRunMain.w/120, TapToRunMain.h/80);
-		Assets.font.draw(batch, "Game over",(int) (TapToRunMain.w/2-TapToRunMain.w/3.5f), TapToRunMain.h/2+TapToRunMain.h/6);
-		Assets.font.setScale(TapToRunMain.w/160, TapToRunMain.h/100);
+		Assets.font.draw(batch, "Game over",(int) (TapToRunMain.w/2-Assets.font.getBounds("Game Over").width/2),
+				TapToRunMain.h/2+Assets.font.getBounds("Game Over").height+5);
 		Assets.font.draw(batch, "Points:" + ((int)world.score),
-				(int) (TapToRunMain.w/2-TapToRunMain.w/4f), TapToRunMain.h/2);
+				(int) (TapToRunMain.w/2-Assets.font.getBounds("Points:" + ((int)world.score)).width/2), TapToRunMain.h/2);
 		}
 	}
 
