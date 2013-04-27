@@ -1,7 +1,5 @@
 package com.benjaminlanders.taptorun.renderer;
 
-import com.badlogic.gdx.Gdx;
-
 public class Cloud
 {
 	private float x, y;
