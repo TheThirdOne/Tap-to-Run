@@ -46,13 +46,12 @@ public class TapToRunMain implements ApplicationListener
 	@Override
 	public void render()
 	{		
+		float delta = Gdx.graphics.getDeltaTime();
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
-		//batch.begin();
-		//batch.draw(texture, 0, 0, w, h);
-		//batch.end();
-		main.render(Gdx.graphics.getDeltaTime());
+		controller.update(delta);
+		main.render(delta);
 		
 	}
 

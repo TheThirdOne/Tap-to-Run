@@ -51,7 +51,7 @@ public class GameRenderer extends Renderer
 	}
 	public void drawCharacter()
 	{
-		batch.draw(Assets.getImage(Assets.character),0,0,50,50);
+		batch.draw(Assets.getImage(Assets.character),world.player.x*TapToRunMain.w,world.player.y*TapToRunMain.h,50,50);
 	}
 	public void drawBlocks()
 	{
