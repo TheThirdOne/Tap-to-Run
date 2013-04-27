@@ -28,7 +28,15 @@ public class Controller
 	{
 		for(Box box: world.boxes)
 		{
-			box.x -= delta*.5f;
+			if(box.x + box.w < 0)
+			{
+				box.w = (float) Math.random()/3+.33f;
+				box.x = 2.7f-box.w;
+			}else
+			{
+				box.x -= delta*.5f;
+			}
+			
 		}
 	}
 	private void playerCollision(float delta)
