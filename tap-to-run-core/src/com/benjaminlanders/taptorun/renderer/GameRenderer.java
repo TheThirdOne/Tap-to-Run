@@ -1,21 +1,24 @@
 package com.benjaminlanders.taptorun.renderer;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.benjaminlanders.taptorun.TapToRunMain;
 import com.benjaminlanders.taptorun.helper.Assets;
+import com.benjaminlanders.taptorun.model.Box;
+import com.benjaminlanders.taptorun.model.World;
 
 public class GameRenderer extends Renderer
 {
 	private SpriteBatch batch;
 	float stateTime;
+	World world;
 	private Cloud[] clouds;
 	public static final int NUMBER_OF_CLOUDS = 4;
 
-	public GameRenderer(TapToRunMain ref, SpriteBatch batch) 
+	public GameRenderer(TapToRunMain ref, SpriteBatch batch, World world) 
 	{
 		super(ref);
 		this.batch = batch;
+		this.world = world;
 		clouds = new Cloud[NUMBER_OF_CLOUDS];
 		for(int i = 0; i < NUMBER_OF_CLOUDS; i++ )
 		{
@@ -28,6 +31,7 @@ public class GameRenderer extends Renderer
 		stateTime += delta;
 		batch.begin();
 		drawBackground(stateTime);
+		drawBlocks();
 		drawCharacter();
 		drawClouds(delta);
 		batch.end();
@@ -48,6 +52,13 @@ public class GameRenderer extends Renderer
 	public void drawCharacter()
 	{
 		batch.draw(Assets.getImage(Assets.character),0,0,50,50);
+	}
+	public void drawBlocks()
+	{
+		for(Box box: world.boxes)
+		{
+			batch.draw(Assets.getImage(Assets.block), box.x*TapToRunMain.w, box.y*TapToRunMain.h, box.w*TapToRunMain.w, box.h*TapToRunMain.h);
+		}
 	}
 
 }

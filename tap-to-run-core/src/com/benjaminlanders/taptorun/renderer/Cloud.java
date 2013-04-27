@@ -23,7 +23,6 @@ public class Cloud
 	public Cloud()
 	{
 		this((float) Math.random()/3 + .66f);
-		Gdx.app.log("test", ""+((float) Math.random()/2 + .5f ));
 	}
 	
 	public void update(float delta)
