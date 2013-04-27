@@ -9,5 +9,5 @@ public abstract class Renderer
 	{
 		reference = ref;
 	}
-	public abstract void render();
+	public abstract void render(float delta);
 }

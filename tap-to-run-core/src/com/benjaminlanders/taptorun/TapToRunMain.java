@@ -6,12 +6,15 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.benjaminlanders.taptorun.renderer.GameRenderer;
+import com.benjaminlanders.taptorun.renderer.Renderer;
 
 public class TapToRunMain implements ApplicationListener
 {
 	private SpriteBatch batch;
 	private Texture texture;
 	public static float h,w;
+	private Renderer main;
 	@Override
 	public void create()
 	{		
@@ -19,6 +22,8 @@ public class TapToRunMain implements ApplicationListener
 		h = Gdx.graphics.getHeight();
 		
 		batch = new SpriteBatch();
+		
+		main = new GameRenderer(this, batch);
 		
 		texture = new Texture(Gdx.files.internal("data/libgdx.png"));
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -37,9 +42,11 @@ public class TapToRunMain implements ApplicationListener
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
-		batch.begin();
-		batch.draw(texture, 0, 0, w, h);
-		batch.end();
+		//batch.begin();
+		//batch.draw(texture, 0, 0, w, h);
+		//batch.end();
+		main.render(Gdx.graphics.getDeltaTime());
+		
 	}
 
 	@Override

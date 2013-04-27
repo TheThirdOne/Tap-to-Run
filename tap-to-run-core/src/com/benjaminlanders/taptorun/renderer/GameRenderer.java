@@ -1,22 +1,32 @@
 package com.benjaminlanders.taptorun.renderer;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.benjaminlanders.taptorun.TapToRunMain;
+import com.benjaminlanders.taptorun.helper.Assets;
 
 public class GameRenderer extends Renderer
 {
 	private SpriteBatch batch;
+	TextureRegion test;
+	float stateTime;
 
-	protected GameRenderer(TapToRunMain ref, SpriteBatch batch) 
+	public GameRenderer(TapToRunMain ref, SpriteBatch batch) 
 	{
 		super(ref);
 		this.batch = batch;
 	}
 
-	@Override
-	public void render() 
+	public void render(float delta)
 	{
-		
+		stateTime += delta;
+		batch.begin();
+		batch.draw(Assets.getImage(Assets.background), -((stateTime*50)%TapToRunMain.w), 0, TapToRunMain.w, TapToRunMain.h);
+		batch.draw(Assets.getImage(Assets.background), -((stateTime*50)%TapToRunMain.w)+TapToRunMain.w, 0, TapToRunMain.w, TapToRunMain.h);
+		test = Assets.getImage(Assets.background);
+		batch.end();
+		Gdx.app.log("","Testa");
 	}
 
 }
