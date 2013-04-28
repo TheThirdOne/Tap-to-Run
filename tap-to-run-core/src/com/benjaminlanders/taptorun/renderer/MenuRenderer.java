@@ -51,7 +51,7 @@ public class MenuRenderer extends Renderer
 
 	public void drawOptions()
 	{
-		Assets.font.setScale(1f);
+		Assets.font.setScale(TapToRunMain.w/480,TapToRunMain.h/360);
 		Assets.font.draw(batch,"Play Game", TapToRunMain.w/2 - Assets.font.getBounds("Play Game").width/2  , TapToRunMain.h/2);
 		Assets.font.draw(batch,"Highscore", TapToRunMain.w/2 - Assets.font.getBounds("Highscore").width/2  , TapToRunMain.h/2- Assets.font.getBounds("Play Game").height*2);
 
@@ -59,7 +59,7 @@ public class MenuRenderer extends Renderer
 	public void drawTitle()
 	{
 		Assets.font.setColor(Color.BLACK);
-		Assets.font.setScale(2f);
+		Assets.font.setScale(TapToRunMain.w/240,TapToRunMain.h/180);
 		Assets.font.draw(batch,"Tap to Run", TapToRunMain.w/2 - Assets.font.getBounds("Tap to Run").width/2  , TapToRunMain.h);
 	}
 

@@ -2,6 +2,7 @@ package com.benjaminlanders.taptorun;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -26,11 +27,14 @@ public class TapToRunMain implements ApplicationListener
 	private Renderer main, menu, scores;
 	Controller controller;
 	World world;
+	public static Preferences prefs;
 	@Override
 	public void create()
 	{		
 		w = Gdx.graphics.getWidth();
 		h = Gdx.graphics.getHeight();
+		
+		prefs = Gdx.app.getPreferences("preferences");
 		
 		world = new World();
 		controller = new Controller(world);
@@ -45,8 +49,6 @@ public class TapToRunMain implements ApplicationListener
 		menu = new MenuRenderer(this, batch);
 		scores = new HighScoreRenderer(this, batch);
 		HighScroreKeeper.createFile();
-		//HighScroreKeeper.writeScoreToFile(173);
-		Gdx.app.log("last score", HighScroreKeeper.readScoresFromFile()[4]);
 	}
 
 	@Override

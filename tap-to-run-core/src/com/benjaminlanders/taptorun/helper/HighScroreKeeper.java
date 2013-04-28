@@ -1,7 +1,7 @@
 package com.benjaminlanders.taptorun.helper;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Preferences;
+import com.benjaminlanders.taptorun.TapToRunMain;
 
 public class HighScroreKeeper 
 {
@@ -31,16 +31,18 @@ public class HighScroreKeeper
 		}
 		out.substring(0, out.length()-2);
 		//Gdx.files.external("save/scores.txt").writeString(out, false);
-		Gdx.app.getPreferences("Tap-to-Run").putString("scores",out);
+		TapToRunMain.prefs.putString("scores",out);
+		TapToRunMain.prefs.flush();
 	}
 	public static String[] readScoresFromFile()
 	{
-		String temp = Gdx.app.getPreferences("Tap-to-Run").getString("scores");//Gdx.files.external("save/scores.txt").readString();
+		String temp = TapToRunMain.prefs.getString("scores");//Gdx.files.external("save/scores.txt").readString();
 		return temp.split(",");
 	}
 	public static void createFile()
 	{
-		Gdx.app.getPreferences("Tap-to-Run").putString("scores","5,4,3,2,1");
+		TapToRunMain.prefs.putString("scores","5,4,3,2,1");
+		TapToRunMain.prefs.flush();
 	}
 
 }
