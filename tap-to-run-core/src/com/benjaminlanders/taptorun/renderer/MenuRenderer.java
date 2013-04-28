@@ -10,12 +10,13 @@ import com.benjaminlanders.taptorun.helper.SoundManager;
 public class MenuRenderer extends Renderer
 {
 	SpriteBatch batch;
+	
 	public MenuRenderer(TapToRunMain ref, SpriteBatch batch)
 	{
 		super(ref);
 		this.batch = batch;
 	}
-
+	
 	@Override
 	public void render(float delta) 
 	{
@@ -26,6 +27,7 @@ public class MenuRenderer extends Renderer
 		checkInput();
 		batch.end();
 	}
+	
 	public void checkInput()
 	{
 		if(Gdx.input.justTouched())
@@ -56,12 +58,11 @@ public class MenuRenderer extends Renderer
 		Assets.font.draw(batch,"Highscore", TapToRunMain.w/2 - Assets.font.getBounds("Highscore").width/2  , TapToRunMain.h/2- Assets.font.getBounds("Play Game").height*2);
 
 	}
+	
 	public void drawTitle()
 	{
 		Assets.font.setColor(Color.BLACK);
 		Assets.font.setScale(TapToRunMain.w/240,TapToRunMain.h/180);
 		Assets.font.draw(batch,"Tap to Run", TapToRunMain.w/2 - Assets.font.getBounds("Tap to Run").width/2  , TapToRunMain.h-5);
 	}
-
-
 }

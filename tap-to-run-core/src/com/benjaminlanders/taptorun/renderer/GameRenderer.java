@@ -48,16 +48,19 @@ public class GameRenderer extends Renderer
 			clouds[i].update(delta);
 		}
 	}
+	
 	public void drawBackground(float stateTime)
 	{
 		batch.draw(Assets.getImage(Assets.background), -((stateTime*50)%TapToRunMain.w), 0, TapToRunMain.w, TapToRunMain.h);
 		batch.draw(Assets.getImage(Assets.background), -((stateTime*50)%TapToRunMain.w)+TapToRunMain.w, 0, TapToRunMain.w, TapToRunMain.h);
 	}
+	
 	public void drawCharacter()
 	{
 		batch.draw(Assets.getImage(Assets.character),(world.player.x-world.player.w/2)*TapToRunMain.w,
 				(world.player.y-world.player.h/2)*TapToRunMain.h,world.player.w*TapToRunMain.w,world.player.h*TapToRunMain.h);
 	}
+	
 	public void drawBlocks()
 	{
 		for(Box box: world.boxes)
@@ -65,6 +68,7 @@ public class GameRenderer extends Renderer
 			batch.draw(Assets.getImage(Assets.block), box.x*TapToRunMain.w, box.y*TapToRunMain.h, box.w*TapToRunMain.w, box.h*TapToRunMain.h);
 		}
 	}
+	
 	public void drawScore()
 	{
 		if(world.player.alive)
@@ -73,6 +77,7 @@ public class GameRenderer extends Renderer
 		Assets.font.draw(batch, "" + ((int)world.score), 5, TapToRunMain.h-5);
 		}
 	}
+	
 	public void drawGameOver() 
 	{
 		if(!world.player.alive)
@@ -84,6 +89,7 @@ public class GameRenderer extends Renderer
 		checkToReturn();
 		}
 	}
+	
 	public void checkToReturn()
 	{
 		if(Gdx.input.justTouched())
@@ -91,5 +97,4 @@ public class GameRenderer extends Renderer
 			reference.setState(TapToRunMain.MENU);
 		}
 	}
-
 }
