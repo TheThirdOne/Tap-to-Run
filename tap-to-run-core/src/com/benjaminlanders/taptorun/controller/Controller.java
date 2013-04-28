@@ -13,7 +13,7 @@ import com.benjaminlanders.taptorun.model.World;
 public class Controller
 {
 	World world;
-	boolean mouseReleased, mouseDown;
+	//boolean mouseReleased, mouseDown;
 	public int ref;
 	public Controller(World world)
 	{
@@ -25,8 +25,6 @@ public class Controller
 		
 		if(world.player.alive)
 		{
-			mouseReleased = mouseDown && !(Gdx.input.isTouched() || Gdx.input.isKeyPressed(Input.Keys.SPACE));
-			mouseDown = (Gdx.input.isTouched() || Gdx.input.isKeyPressed(Input.Keys.SPACE));
 			updateBlocks(delta);
 			playerCollision(delta);
 			world.player.y += world.player.vY;
@@ -74,20 +72,14 @@ public class Controller
 		}
 		if(!collided.isEmpty())
 		{
-			if(mouseDown)
-			{
-				world.player.x += .005f;
-			}else
-			{
-				world.player.x -= .0001f;
-			}
+			world.player.x -= .0017f;
 			for(Box collides: collided)
 			{
 				if(world.player.y - world.player.h/2 <= collides.y+collides.h)
 				{
 					world.player.y = collides.y+collides.h+world.player.h/2-.01f;
 					world.player.vY = 0;
-					if(mouseReleased)
+					if(Gdx.input.isTouched()||Gdx.input.isKeyPressed(Input.Keys.SPACE))
 					{
 						world.player.vY = .02f;
 						SoundManager.playJump();
@@ -97,6 +89,7 @@ public class Controller
 		}else
 		{
 			world.player.vY-=.04f*delta;
+			world.player.x +=.001;
 		}
 		collided.clear();
 		for(Box block: world.boxes)

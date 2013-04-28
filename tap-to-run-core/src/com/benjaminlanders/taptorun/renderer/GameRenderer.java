@@ -70,7 +70,7 @@ public class GameRenderer extends Renderer
 		if(world.player.alive)
 		{
 		Assets.font.setScale(TapToRunMain.w/240, TapToRunMain.h/160);
-		Assets.font.draw(batch, "" + ((int)world.score), 0, TapToRunMain.h);
+		Assets.font.draw(batch, "" + ((int)world.score), 5, TapToRunMain.h-5);
 		}
 	}
 	public void drawGameOver() 
