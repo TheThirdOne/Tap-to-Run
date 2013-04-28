@@ -54,7 +54,7 @@ public class Controller
 				box.y += (Math.abs(box.y-this.world.boxes[ref].y) < .1f)?.1f:0;
 				box.y = (box.y < .66f)?box.y:.66f;
 				box.w = (float) Math.random()/3+.33f;
-				box.x = this.world.boxes[ref].x + this.world.boxes[ref].w +(float) Math.random()/10;
+				box.x = this.world.boxes[ref].x + this.world.boxes[ref].w + (((float) Math.random() > .2f)?(float) Math.random()/3:0);				
 				ref = i;
 				
 			}else

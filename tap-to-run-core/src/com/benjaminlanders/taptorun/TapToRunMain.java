@@ -48,9 +48,10 @@ public class TapToRunMain implements ApplicationListener
 		main = new GameRenderer(this, batch, world);
 		menu = new MenuRenderer(this, batch);
 		scores = new HighScoreRenderer(this, batch);
-		Gdx.app.log("test","hullo "+ HighScroreKeeper.readScoresFromFile()[0]);
-		Gdx.app.log("test","hullo ");
-		HighScroreKeeper.createFile();
+		if(HighScroreKeeper.readScoresFromFile()[0].equalsIgnoreCase(""))
+		{
+			HighScroreKeeper.createFile();
+		}
 	}
 
 	@Override
