@@ -63,6 +63,6 @@ public class MenuRenderer extends Renderer
 	{
 		Assets.font.setColor(Color.BLACK);
 		Assets.font.setScale(TapToRunMain.w/240,TapToRunMain.h/180);
-		Assets.font.draw(batch,"Tap to Run", TapToRunMain.w/2 - Assets.font.getBounds("Tap to Run").width/2  , TapToRunMain.h-5);
+		Assets.font.draw(batch,"Blob Runner", TapToRunMain.w/2 - Assets.font.getBounds("Blob Runner").width/2  , TapToRunMain.h-5);
 	}
 }
