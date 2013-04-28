@@ -1,6 +1,5 @@
 package com.benjaminlanders.taptorun.helper;
 
-import com.badlogic.gdx.Gdx;
 import com.benjaminlanders.taptorun.TapToRunMain;
 
 public class HighScroreKeeper 

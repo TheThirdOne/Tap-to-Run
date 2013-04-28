@@ -1,8 +1,5 @@
 package com.benjaminlanders.taptorun.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class World 
 {
 	public Box[] boxes;
