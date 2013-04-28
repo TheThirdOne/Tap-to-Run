@@ -109,7 +109,7 @@ public class TapToRunMain implements ApplicationListener
 	public void resetWorld()
 	{
 		world.reset();
-		controller.ref = 4;
+		controller.ref = 9;
 	}
 	
 }

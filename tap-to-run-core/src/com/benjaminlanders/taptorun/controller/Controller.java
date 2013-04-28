@@ -18,7 +18,7 @@ public class Controller
 	public Controller(World world)
 	{
 		this.world = world;
-		ref = 4;
+		ref = 9;
 	}
 	
 	public void update(float delta)

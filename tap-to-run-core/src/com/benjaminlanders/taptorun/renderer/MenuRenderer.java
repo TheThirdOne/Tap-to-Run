@@ -34,7 +34,7 @@ public class MenuRenderer extends Renderer
 		{
 			if(Gdx.input.getX() < TapToRunMain.w/2 + Assets.font.getBounds("Play Game").width/2 &&
 			   Gdx.input.getX() > TapToRunMain.w/2 - Assets.font.getBounds("Play Game").width/2 &&
-			   TapToRunMain.h-Gdx.input.getY() < TapToRunMain.h/2 &&
+			   TapToRunMain.h-Gdx.input.getY()< TapToRunMain.h/2 &&
 			   TapToRunMain.h-Gdx.input.getY() > TapToRunMain.h/2 - Assets.font.getBounds("Play Game").height)
 			{
 				reference.setState(TapToRunMain.MAIN);
@@ -63,6 +63,6 @@ public class MenuRenderer extends Renderer
 	{
 		Assets.font.setColor(Color.BLACK);
 		Assets.font.setScale(TapToRunMain.w/240,TapToRunMain.h/180);
-		Assets.font.draw(batch,"Blob Runner", TapToRunMain.w/2 - Assets.font.getBounds("Blob Runner").width/2  , TapToRunMain.h-5);
+		Assets.font.draw(batch,"Blob Runner", TapToRunMain.w/2 - Assets.font.getBounds("Blob Runner").width/2  , 70*TapToRunMain.h/71);
 	}
 }

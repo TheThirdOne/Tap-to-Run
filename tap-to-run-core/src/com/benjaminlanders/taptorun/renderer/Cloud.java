@@ -31,7 +31,7 @@ public class Cloud
 	{
 		if(getX() + delta * speed < -.5f)
 		{
-			x += delta * speed + 1.5f;
+			x += delta * speed ;//+ 1.5f;
 		}else
 		{
 			x += delta * speed;

@@ -32,7 +32,7 @@ public class HighScoreRenderer extends Renderer
 	public void drawTitle()
 	{
 		Assets.font.setScale(TapToRunMain.w/240,TapToRunMain.h/180);
-		Assets.font.draw(batch, "High Scores", TapToRunMain.w/2-Assets.font.getBounds("High Scores").width/2, TapToRunMain.h-5);
+		Assets.font.draw(batch, "High Scores", TapToRunMain.w/2-Assets.font.getBounds("High Scores").width/2, 70*TapToRunMain.h/71);
 	}
 	
 	public void drawScores()
@@ -41,7 +41,7 @@ public class HighScoreRenderer extends Renderer
 		String[] scores = HighScroreKeeper.readScoresFromFile();
 		for(int i = 0; i < scores.length;i++)
 		{
-			Assets.font.draw(batch,ranking[i]+ ": " + scores[i], 0, TapToRunMain.h/6*(5-i));
+			Assets.font.draw(batch,ranking[i]+ ": " + scores[i], TapToRunMain.w/96, TapToRunMain.h/6*(5-i));
 		}
 	}
 	
