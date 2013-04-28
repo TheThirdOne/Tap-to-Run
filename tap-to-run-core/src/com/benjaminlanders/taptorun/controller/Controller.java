@@ -14,14 +14,15 @@ public class Controller
 {
 	World world;
 	boolean mouseReleased, mouseDown;
-	Box lastUsed;
+	public int ref;
 	public Controller(World world)
 	{
 		this.world = world;
-		lastUsed = world.boxes.get(world.boxes.size()-1);
+		ref = 4;
 	}
 	public void update(float delta)
 	{
+		
 		if(world.player.alive)
 		{
 			mouseReleased = mouseDown && !(Gdx.input.isTouched() || Gdx.input.isKeyPressed(Input.Keys.SPACE));
@@ -43,17 +44,18 @@ public class Controller
 	}
 	private void updateBlocks(float delta)
 	{
-		for(Box box: world.boxes)
+		for(int i = 0; i < world.boxes.length;i++)
 		{
+			Box box = world.boxes[i];
 			if(box.x + box.w < 0)
 			{
-				box.y = (float) Math.random()/2-.30f+lastUsed.y;
+				box.y = (float) Math.random()/2-.30f + this.world.boxes[ref].y;
 				box.y = (box.y > 0)?box.y:0;
-				box.y += (Math.abs(box.y-lastUsed.y) < .1f)?.1f:0;
+				box.y += (Math.abs(box.y-this.world.boxes[ref].y) < .1f)?.1f:0;
 				box.y = (box.y < .66f)?box.y:.66f;
 				box.w = (float) Math.random()/3+.33f;
-				box.x = 2.7f-box.w;
-				lastUsed = box;
+				box.x = this.world.boxes[ref].x + this.world.boxes[ref].w +(float) Math.random()/10;
+				ref = i;
 				
 			}else
 			{
