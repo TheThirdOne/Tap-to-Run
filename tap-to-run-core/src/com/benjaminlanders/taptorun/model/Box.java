@@ -6,6 +6,7 @@ public class Box
 	public static final int SPIKE = 1;
 	public float x,y,w,h;
 	public int type;
+	
 	public Box(int type, float x, float y, float w, float h)
 	{
 		this.type = type;
@@ -14,6 +15,7 @@ public class Box
 		this.w = w;
 		this.h = h;
 	}
+	
 	public boolean collides(float x,float y)
 	{
 		return (this.x < x && this.y < y) && (this.x + this.w > x && this.y + this.h > y);	

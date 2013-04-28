@@ -29,15 +29,16 @@ public class HighScroreKeeper
 			out+=scores[i]+",";
 		}
 		out.substring(0, out.length()-2);
-		//Gdx.files.external("save/scores.txt").writeString(out, false);
 		TapToRunMain.prefs.putString("scores",out);
 		TapToRunMain.prefs.flush();
 	}
+	
 	public static String[] readScoresFromFile()
 	{
-		String temp = TapToRunMain.prefs.getString("scores");//Gdx.files.external("save/scores.txt").readString();
+		String temp = TapToRunMain.prefs.getString("scores");
 		return temp.split(",");
 	}
+	
 	public static void createFile()
 	{
 		if(TapToRunMain.prefs.getString("scores").equals(""));

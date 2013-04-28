@@ -48,6 +48,7 @@ public class TapToRunMain implements ApplicationListener
 		main = new GameRenderer(this, batch, world);
 		menu = new MenuRenderer(this, batch);
 		scores = new HighScoreRenderer(this, batch);
+		
 		if(HighScroreKeeper.readScoresFromFile()[0].equalsIgnoreCase(""))
 		{
 			HighScroreKeeper.createFile();
@@ -79,8 +80,6 @@ public class TapToRunMain implements ApplicationListener
 				scores.render(delta);
 				break;
 		}
-		
-		
 	}
 
 	@Override
@@ -92,10 +91,12 @@ public class TapToRunMain implements ApplicationListener
 	public void pause()
 	{
 	}
+	
 	@Override
 	public void resume()
 	{
 	}
+	
 	public void setState(int state)
 	{
 		this.state = state;
@@ -104,6 +105,7 @@ public class TapToRunMain implements ApplicationListener
 			resetWorld();
 		}
 	}
+	
 	public void resetWorld()
 	{
 		world.reset();

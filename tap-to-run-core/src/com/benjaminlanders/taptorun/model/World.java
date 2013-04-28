@@ -5,14 +5,15 @@ public class World
 	public Box[] boxes;
 	public Player player;
 	public float score=0;
+	
 	public World()
 	{
 		boxes = new Box[5];
 		reset();
 	}
+	
 	public void reset()
 	{
-		//boxes.clear();
 		score = 0;
 		boxes[0] = new Box(Box.BLOCK,.1f,.2f,.5f,.2f);
 		boxes[1] = (new Box(Box.BLOCK,.5f,.3f,.5f,.2f));

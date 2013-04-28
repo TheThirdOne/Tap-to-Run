@@ -13,13 +13,14 @@ import com.benjaminlanders.taptorun.model.World;
 public class Controller
 {
 	World world;
-	//boolean mouseReleased, mouseDown;
 	public int ref;
+	
 	public Controller(World world)
 	{
 		this.world = world;
 		ref = 4;
 	}
+	
 	public void update(float delta)
 	{
 		
@@ -40,6 +41,7 @@ public class Controller
 		}
 		
 	}
+	
 	private void updateBlocks(float delta)
 	{
 		for(int i = 0; i < world.boxes.length;i++)
@@ -62,6 +64,7 @@ public class Controller
 			
 		}
 	}
+	
 	private void playerCollision(float delta)
 	{
 		List<Box> collided = new ArrayList<Box>();

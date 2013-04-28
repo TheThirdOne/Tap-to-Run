@@ -4,6 +4,7 @@ public class Player
 {
 	public float x,y, vY,h,w;
 	public boolean alive;
+	
 	public Player(float x, float y,float h,float w)
 	{
 		this.x = x;
