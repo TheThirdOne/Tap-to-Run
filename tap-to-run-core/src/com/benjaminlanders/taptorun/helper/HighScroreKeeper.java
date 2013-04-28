@@ -41,8 +41,11 @@ public class HighScroreKeeper
 	}
 	public static void createFile()
 	{
+		if(TapToRunMain.prefs.getString("scores").equals(""));
+		{
 		TapToRunMain.prefs.putString("scores","5,4,3,2,1");
 		TapToRunMain.prefs.flush();
+		}
 	}
 
 }
