@@ -8,7 +8,7 @@ public class World
 	
 	public World()
 	{
-		boxes = new Box[10];
+		boxes = new Box[5];
 		reset();
 	}
 	
@@ -20,11 +20,6 @@ public class World
 		boxes[2] = (new Box(Box.BLOCK,1f,.4f,.5f,.2f));
 		boxes[3] = (new Box(Box.BLOCK,1.7f,.2f,.5f,.2f));
 		boxes[4] = (new Box(Box.BLOCK,2.2f,.1f,.3f,.2f));
-		boxes[5] = new Box(Box.BLOCK,.1f,.2f,.5f,.2f);
-		boxes[6] = (new Box(Box.BLOCK,.5f,.3f,.5f,.2f));
-		boxes[7] = (new Box(Box.BLOCK,1f,.4f,.5f,.2f));
-		boxes[8] = (new Box(Box.BLOCK,1.7f,.2f,.5f,.2f));
-		boxes[9] = (new Box(Box.BLOCK,2.2f,.1f,.3f,.2f));
 		player = new Player(.3f,.6f, .12f,.08f);
 	}
 }
