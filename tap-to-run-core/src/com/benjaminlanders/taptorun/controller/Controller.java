@@ -68,13 +68,11 @@ public class Controller
 	private void playerCollision(float delta)
 	{
 		List<Box> collided = new ArrayList<Box>();
-		boolean flying = true;
 		for(Box block: world.boxes)
 		{
 			if(block.collides(world.player.x, world.player.y - world.player.h/2))
 			{
 				collided.add(block);
-				flying = false;
 			}
 		}
 		if(!collided.isEmpty())
@@ -111,11 +109,6 @@ public class Controller
 				if(world.player.x + world.player.w/2 > collides.x)
 				{
 					world.player.x = collides.x - world.player.w/2;
-					if(flying)
-					{
-						world.player.x -= .02f;
-						world.player.vY = .01f;
-					}
 				}
 			}
 		}
