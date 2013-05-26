@@ -7,3 +7,7 @@
 
 bin/
 
+# gradle #
+.gradle
+build
+
