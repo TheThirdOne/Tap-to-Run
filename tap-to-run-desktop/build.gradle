@@ -1,4 +1,4 @@
-dependencies {
-    compile project(':core')
-    runtime fileTree(dir: 'libs', include: '*.jar')
-}
+	dependencies {
+  		compile project(':tap-to-run-core')
+    	runtime fileTree(dir: 'libs', include: '*.jar')
+	}

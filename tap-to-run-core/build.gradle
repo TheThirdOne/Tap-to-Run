@@ -1,3 +1,6 @@
-dependencies {
-    runtime fileTree(dir: 'libs', include: '*.jar')
-}
+	dependencies {
+    	runtime fileTree(dir: 'libs', include: '*.jar')
+	}
+	task testIt{
+		println 'hello test'
+	}

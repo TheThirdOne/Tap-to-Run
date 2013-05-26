@@ -1,1 +1,1 @@
-include "core", "desktop", "android"
+include "tap-to-run-core", "tap-to-run-desktop", "tap-to-run-android"
